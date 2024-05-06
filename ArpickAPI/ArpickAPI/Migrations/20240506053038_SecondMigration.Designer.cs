@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ArpickAPI.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240505191502_SecondMigration")]
+    [Migration("20240506053038_SecondMigration")]
     partial class SecondMigration
     {
         /// <inheritdoc />
@@ -43,6 +43,10 @@ namespace ArpickAPI.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
