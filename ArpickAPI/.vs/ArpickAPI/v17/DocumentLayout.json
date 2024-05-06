@@ -1,0 +1,391 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Blog\\ArpickAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\.gitattributes||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\.gitattributes||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\models\\dto\\blogpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\models\\dto\\blogpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\models\\domain\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\models\\domain\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\controllers\\authorizationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\controllers\\authorizationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Blog\\ArpickAPI\\ArpickAPI\\Migrations\\20240505183010_SecondMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ArpickAPI\\Migrations\\20240505183010_SecondMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\controllers\\protectedcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\controllers\\protectedcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\models\\dto\\changepasswordmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\models\\dto\\changepasswordmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\models\\dto\\status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\models\\dto\\status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\controllers\\tokencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\controllers\\tokencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\models\\dto\\registrationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\models\\dto\\registrationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\repositories\\domain\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\repositories\\domain\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\models\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\models\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\repositories\\abstract\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\repositories\\abstract\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\models\\dto\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\models\\dto\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\models\\dto\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\models\\dto\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\models\\dto\\refreshtokenrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\models\\dto\\refreshtokenrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\models\\domain\\tokeninfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\models\\domain\\tokeninfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|c:\\blog\\arpickapi\\arpickapi\\models\\domain\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F957907D-57BE-4977-A555-50FE15DCBEA1}|ArpickAPI\\ArpickAPI.csproj|solutionrelative:arpickapi\\models\\domain\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": ".gitattributes",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\.gitattributes",
+              "RelativeDocumentMoniker": "ArpickAPI\\.gitattributes",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\.gitattributes",
+              "RelativeToolTip": "ArpickAPI\\.gitattributes",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-05-06T04:50:51.925Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\.gitignore",
+              "RelativeDocumentMoniker": "ArpickAPI\\.gitignore",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\.gitignore",
+              "RelativeToolTip": "ArpickAPI\\.gitignore",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGoBAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-05-06T04:48:54.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BlogController.cs",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Controllers\\BlogController.cs",
+              "RelativeDocumentMoniker": "ArpickAPI\\Controllers\\BlogController.cs",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Controllers\\BlogController.cs",
+              "RelativeToolTip": "ArpickAPI\\Controllers\\BlogController.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAQwCAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-05T18:15:46.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProtectedController.cs",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Controllers\\ProtectedController.cs",
+              "RelativeDocumentMoniker": "ArpickAPI\\Controllers\\ProtectedController.cs",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Controllers\\ProtectedController.cs",
+              "RelativeToolTip": "ArpickAPI\\Controllers\\ProtectedController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-29T11:49:33.513Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "TokenController.cs",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Controllers\\TokenController.cs",
+              "RelativeDocumentMoniker": "ArpickAPI\\Controllers\\TokenController.cs",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Controllers\\TokenController.cs",
+              "RelativeToolTip": "ArpickAPI\\Controllers\\TokenController.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAQwBcAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-29T10:25:19.013Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "TokenService.cs",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Repositories\\Domain\\TokenService.cs",
+              "RelativeDocumentMoniker": "ArpickAPI\\Repositories\\Domain\\TokenService.cs",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Repositories\\Domain\\TokenService.cs",
+              "RelativeToolTip": "ArpickAPI\\Repositories\\Domain\\TokenService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD8AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-29T10:15:43.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Status.cs",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\DTO\\Status.cs",
+              "RelativeDocumentMoniker": "ArpickAPI\\Models\\DTO\\Status.cs",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\DTO\\Status.cs",
+              "RelativeToolTip": "ArpickAPI\\Models\\DTO\\Status.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-29T10:12:19.871Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ChangePasswordModel.cs",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\DTO\\ChangePasswordModel.cs",
+              "RelativeDocumentMoniker": "ArpickAPI\\Models\\DTO\\ChangePasswordModel.cs",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\DTO\\ChangePasswordModel.cs",
+              "RelativeToolTip": "ArpickAPI\\Models\\DTO\\ChangePasswordModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-29T10:36:39.458Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DatabaseContext.cs",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\Domain\\DatabaseContext.cs",
+              "RelativeDocumentMoniker": "ArpickAPI\\Models\\Domain\\DatabaseContext.cs",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\Domain\\DatabaseContext.cs",
+              "RelativeToolTip": "ArpickAPI\\Models\\Domain\\DatabaseContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwA4AAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-29T09:17:53.044Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BlogPost.cs",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\DTO\\BlogPost.cs",
+              "RelativeDocumentMoniker": "ArpickAPI\\Models\\DTO\\BlogPost.cs",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\DTO\\BlogPost.cs",
+              "RelativeToolTip": "ArpickAPI\\Models\\DTO\\BlogPost.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAcAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-05T18:12:32.355Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthorizationController.cs",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Controllers\\AuthorizationController.cs",
+              "RelativeDocumentMoniker": "ArpickAPI\\Controllers\\AuthorizationController.cs",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Controllers\\AuthorizationController.cs",
+              "RelativeToolTip": "ArpickAPI\\Controllers\\AuthorizationController.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAA1wDcAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-29T10:33:57.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "20240505183010_SecondMigration.cs",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Migrations\\20240505183010_SecondMigration.cs",
+              "RelativeDocumentMoniker": "ArpickAPI\\Migrations\\20240505183010_SecondMigration.cs",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Migrations\\20240505183010_SecondMigration.cs",
+              "RelativeToolTip": "ArpickAPI\\Migrations\\20240505183010_SecondMigration.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-05T18:30:10.609Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "ArpickAPI\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "ArpickAPI\\Controllers\\AdminController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-29T11:45:58.384Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "ArpickAPI\\appsettings.json",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\appsettings.json",
+              "RelativeToolTip": "ArpickAPI\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-03-29T09:15:15.223Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Program.cs",
+              "RelativeDocumentMoniker": "ArpickAPI\\Program.cs",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Program.cs",
+              "RelativeToolTip": "ArpickAPI\\Program.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAACoAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-29T09:45:14.371Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "RegistrationModel.cs",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\DTO\\RegistrationModel.cs",
+              "RelativeDocumentMoniker": "ArpickAPI\\Models\\DTO\\RegistrationModel.cs",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\DTO\\RegistrationModel.cs",
+              "RelativeToolTip": "ArpickAPI\\Models\\DTO\\RegistrationModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-29T10:10:44.656Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "LoginModel.cs",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\DTO\\LoginModel.cs",
+              "RelativeDocumentMoniker": "ArpickAPI\\Models\\DTO\\LoginModel.cs",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\DTO\\LoginModel.cs",
+              "RelativeToolTip": "ArpickAPI\\Models\\DTO\\LoginModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-29T10:11:25.118Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ITokenService.cs",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Repositories\\Abstract\\ITokenService.cs",
+              "RelativeDocumentMoniker": "ArpickAPI\\Repositories\\Abstract\\ITokenService.cs",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Repositories\\Abstract\\ITokenService.cs",
+              "RelativeToolTip": "ArpickAPI\\Repositories\\Abstract\\ITokenService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAUAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-29T10:13:40.9Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "UserRoles.cs",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\UserRoles.cs",
+              "RelativeDocumentMoniker": "ArpickAPI\\Models\\UserRoles.cs",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\UserRoles.cs",
+              "RelativeToolTip": "ArpickAPI\\Models\\UserRoles.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-29T09:32:03.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "LoginResponse.cs",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\DTO\\LoginResponse.cs",
+              "RelativeDocumentMoniker": "ArpickAPI\\Models\\DTO\\LoginResponse.cs",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\DTO\\LoginResponse.cs",
+              "RelativeToolTip": "ArpickAPI\\Models\\DTO\\LoginResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-29T10:36:02.948Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "RefreshTokenRequest.cs",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\DTO\\RefreshTokenRequest.cs",
+              "RelativeDocumentMoniker": "ArpickAPI\\Models\\DTO\\RefreshTokenRequest.cs",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\DTO\\RefreshTokenRequest.cs",
+              "RelativeToolTip": "ArpickAPI\\Models\\DTO\\RefreshTokenRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAIAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-29T10:30:17.642Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "TokenInfo.cs",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\Domain\\TokenInfo.cs",
+              "RelativeDocumentMoniker": "ArpickAPI\\Models\\Domain\\TokenInfo.cs",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\Domain\\TokenInfo.cs",
+              "RelativeToolTip": "ArpickAPI\\Models\\Domain\\TokenInfo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-29T09:33:40.468Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\Domain\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "ArpickAPI\\Models\\Domain\\ApplicationUser.cs",
+              "ToolTip": "C:\\Blog\\ArpickAPI\\ArpickAPI\\Models\\Domain\\ApplicationUser.cs",
+              "RelativeToolTip": "ArpickAPI\\Models\\Domain\\ApplicationUser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-29T09:23:58.201Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

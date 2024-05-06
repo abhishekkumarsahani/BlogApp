@@ -1,0 +1,6 @@
+@ArpickAPI_HostAddress = http://localhost:5188
+
+GET {{ArpickAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

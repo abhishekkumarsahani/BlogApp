@@ -1,0 +1,33 @@
+/* UserDashboardSidebar.css */
+.sidebar {
+    width: 200px;
+    margin-top: 100px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .sidebar-menu {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar-menu li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar-link {
+    color: #666;
+    text-decoration: none;
+  }
+  
+  .sidebar-link:hover {
+    color: #333;
+  }
+  
