@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ArpickAPI.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240506053038_SecondMigration")]
+    [Migration("20240506081737_SecondMigration")]
     partial class SecondMigration
     {
         /// <inheritdoc />
@@ -34,6 +34,10 @@ namespace ArpickAPI.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("AuthorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AuthorName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

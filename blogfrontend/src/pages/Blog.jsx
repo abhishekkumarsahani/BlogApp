@@ -1,87 +1,62 @@
-// Blog.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Blog.css'; // Import your custom CSS file
+import Popup from '../Components/Popup/Popop';
+import './Blog.css'; // Import CSS for styling
 
 const Blog = () => {
   const [blogPosts, setBlogPosts] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(5); // Number of posts per page
-  const [sortBy, setSortBy] = useState('recency'); // Default sort option
+  const [showPopup, setShowPopup] = useState(false); // State to manage popup visibility
 
   useEffect(() => {
-    // Fetch initial list of blog posts from backend API
-    fetchBlogPosts();
-  }, [sortBy]);
+    const fetchBlogPosts = async () => {
+      try {
+        const response = await axios.get('https://localhost:44385/api/blog');
+        setBlogPosts(response.data);
+      } catch (error) {
+        console.error('Error fetching blog posts:', error);
+      }
+    };
 
-  const fetchBlogPosts = async () => {
-    try {
-      // Make API request to fetch blog posts
-      const response = await axios.get(`https://localhost:44385/api/blog-posts?sortBy=${sortBy}`);
-      setBlogPosts(response.data);
-    } catch (error) {
-      console.error('Error fetching blog posts:', error);
-    }
+    fetchBlogPosts();
+  }, []);
+
+  // Function to handle opening the popup
+  const handleOpenPopup = () => {
+    setShowPopup(true);
   };
 
-  // Function to handle pagination change
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  // Function to handle closing the popup
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
 
-  // Get current posts based on pagination
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = blogPosts.slice(indexOfFirstPost, indexOfLastPost);
+  // Function to handle submitting the comment
+  const handleSubmitComment = () => {
+    // Add your logic to submit the comment here
+    // For example, you can call an API to save the comment
+    // Then close the popup
+    handleClosePopup();
+  };
 
   return (
     <div className="blog-container">
-      <h2>Blog Listing</h2>
-      {/* Render sorting options */}
-      <div className="sort-by">
-        <label>Sort By:</label>
-        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-          <option value="recency">Recency</option>
-          <option value="popularity">Popularity</option>
-          <option value="random">Random</option>
-        </select>
-      </div>
-      {/* Render blog posts */}
-      {currentPosts.map((post) => (
+      <h2>Blog Posts</h2>
+      {blogPosts.map((post) => (
         <div key={post.id} className="blog-post">
+          {post.imagePath && <img src={post.imagePath} alt={post.title} />}
           <h3>{post.title}</h3>
           <p>{post.content}</p>
-          {/* Additional blog post details */}
+          <p className="author">Author: {post.authorName}</p>
+          <div className="vote-buttons">
+            <button className="vote-button">Upvote</button>
+            <button className="vote-button">Downvote</button>
+            <button className="vote-button" onClick={handleOpenPopup}>Comment</button> {/* Open popup on click */}
+          </div>
         </div>
       ))}
-      {/* Render pagination controls */}
-      <Pagination
-        postsPerPage={postsPerPage}
-        totalPosts={blogPosts.length}
-        paginate={paginate}
-        currentPage={currentPage}
-      />
+      {/* Render the Popup component if showPopup is true */}
+      {showPopup && <Popup onClose={handleClosePopup} onSubmit={handleSubmitComment} />}
     </div>
-  );
-};
-
-const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) => {
-  const pageNumbers = [];
-
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
-    pageNumbers.push(i);
-  }
-
-  return (
-    <nav>
-      <ul className="pagination">
-        {pageNumbers.map((number) => (
-          <li key={number} className={currentPage === number ? 'active' : ''}>
-            <button onClick={() => paginate(number)} className="page-link" href="!#">
-              {number}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </nav>
   );
 };
 

@@ -31,36 +31,16 @@ namespace ArpickAPI.Controllers
 
             return blogPost;
         }
-        // GET: api/blog-posts
+        // GET: api/blog
         [HttpGet]
-        public ActionResult<IEnumerable<BlogPost>> GetBlogPosts(string sortBy = "recency")
+        public ActionResult<IEnumerable<BlogPost>> GetBlogPosts()
         {
-            IQueryable<BlogPost> blogPostsQuery = _context.BlogPosts;
-
-            // Sort blog posts based on the sortBy parameter
-            switch (sortBy)
-            {
-                case "recency":
-                    blogPostsQuery = blogPostsQuery.OrderByDescending(post => post.CreatedAt);
-                    break;
-                case "popularity":
-                    // Implement logic to sort by popularity
-                    // This might involve calculating popularity scores based on upvotes, downvotes, and comments
-                    // For simplicity, let's assume it's ordered by ID in descending order
-                    blogPostsQuery = blogPostsQuery.OrderByDescending(post => post.Id);
-                    break;
-                case "random":
-                    // Implement logic to sort randomly
-                    // For simplicity, let's assume it's ordered by ID in random order
-                    blogPostsQuery = blogPostsQuery.OrderBy(post => Guid.NewGuid());
-                    break;
-                default:
-                    break;
-            }
-
-            var blogPosts = blogPostsQuery.ToList();
+            // Retrieve all blog posts without any sorting
+            var blogPosts = _context.BlogPosts.ToList();
             return blogPosts;
         }
+
+        
 
         // POST: api/blog/create
         [HttpPost("create")]

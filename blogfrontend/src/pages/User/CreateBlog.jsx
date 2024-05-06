@@ -48,12 +48,13 @@ const CreateBlogPost = () => {
   const handleCreateBlogPost = async () => {
     try {
       const userId = auth?.user?.userId; // Access the userId from the auth object
-
+      const authorName = auth?.user?.username
       // Create blog post with image path
       const postData = {
         title,
         content,
         authorId: userId,
+        authorName: authorName,
         imagePath: imagePath,
       };
 

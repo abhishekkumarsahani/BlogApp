@@ -13,6 +13,7 @@ namespace ArpickAPI.Models.Domain
 
         public DbSet<TokenInfo> TokenInfo { get; set; }
         public DbSet<BlogPost> BlogPosts { get; set; }
+        public DbSet<Comments> CommentPosts { get; set; }
 
 
     }

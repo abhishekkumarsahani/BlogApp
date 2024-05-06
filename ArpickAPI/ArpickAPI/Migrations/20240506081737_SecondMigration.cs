@@ -11,7 +11,7 @@ namespace ArpickAPI.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "ImagePath",
+                name: "AuthorName",
                 table: "BlogPosts",
                 type: "nvarchar(max)",
                 nullable: false,
@@ -22,7 +22,7 @@ namespace ArpickAPI.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "ImagePath",
+                name: "AuthorName",
                 table: "BlogPosts");
         }
     }

@@ -7,7 +7,7 @@ namespace ArpickAPI.Controllers
     [Route("api/[controller]")]
     public class ImageController : ControllerBase
     {
-        private readonly string ImageFolderPath = "Uploads"; // Folder to store uploaded images
+        private readonly string ImageFolderPath = "upload/images"; // Folder to store uploaded images
 
         [HttpPost("upload")]
         public async Task<ActionResult<string>> UploadImage()
