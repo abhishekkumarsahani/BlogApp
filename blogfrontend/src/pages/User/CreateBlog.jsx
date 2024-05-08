@@ -3,6 +3,7 @@ import axios from "axios";
 import "./CreateBlog.css";
 import { useAuth } from "../../context/auth";
 import SideBars from "./SideBars";
+import { useNavigate } from "react-router-dom";
 
 const CreateBlogPost = () => {
   const [title, setTitle] = useState("");
@@ -11,6 +12,7 @@ const CreateBlogPost = () => {
   const [imagePath, setImagePath] = useState(""); // State to store the image path
   const [imagePreview, setImagePreview] = useState(null); // State to store the image preview URL
   const [auth] = useAuth(); // Use the useAuth hook to access the auth object
+  const navigate = useNavigate();
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -67,6 +69,7 @@ const CreateBlogPost = () => {
         postData
       );
       console.log("Blog post created:", response.data);
+      navigate('/');
       // You can redirect the user to the newly created blog post or another page here
     } catch (error) {
       console.error("Error creating blog post:", error);

@@ -40,7 +40,16 @@ namespace ArpickAPI.Controllers
             return blogPosts;
         }
 
-        
+        // GET: api/blog/user/{userId}
+        [HttpGet("user/{userId}")]
+        public ActionResult<IEnumerable<BlogPost>> GetBlogPostsForUser(string userId)
+        {
+            // Retrieve all blog posts for the specified user ID
+            var blogPostsForUser = _context.BlogPosts.Where(post => post.AuthorId == userId).ToList();
+            return blogPostsForUser;
+        }
+
+
 
         // POST: api/blog/create
         [HttpPost("create")]
@@ -70,12 +79,12 @@ namespace ArpickAPI.Controllers
                 return NotFound("Blog post not found.");
             }
 
-            // Update the properties of the existing blog post
             existingBlogPost.Title = updatedBlogPost.Title;
             existingBlogPost.Content = updatedBlogPost.Content;
-           // existingBlogPost.AuthorId = updatedBlogPost.AuthorId; // Assuming AuthorId can be updated
-                                                                  // Update other properties as needed
-
+            existingBlogPost.CreatedAt = DateTime.Now;
+            existingBlogPost.ImagePath = updatedBlogPost.ImagePath;
+            existingBlogPost.AuthorId = updatedBlogPost.AuthorId;
+            existingBlogPost.AuthorName = updatedBlogPost.AuthorName;
             // Save changes to the database
             try
             {

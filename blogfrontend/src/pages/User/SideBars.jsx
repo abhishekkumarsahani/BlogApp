@@ -58,7 +58,7 @@ const SideBars = () => {
         </li>
         <li className="sidebar-item">
           <Link
-            to="/dashboard/blog/showBlog"
+            to="/dashboard/user/blog/showBlog"
             className="sidebar-link"
             style={{ color: "white" }}
           >
