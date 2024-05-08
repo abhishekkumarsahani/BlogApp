@@ -1,0 +1,29 @@
+.blog-post-container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .content {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .author {
+    font-style: italic;
+    color: #888;
+  }
+  
+  .loading, .not-found {
+    text-align: center;
+    font-size: 18px;
+    margin: 20px 0;
+  }
+  

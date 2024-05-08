@@ -56,33 +56,45 @@ namespace ArpickAPI.Controllers
 
         // PUT: api/blog/update/{id}
         [HttpPut("update/{id}")]
-        public async Task<IActionResult> UpdateBlogPost(int id, BlogPost blogPost)
+        public async Task<IActionResult> UpdateBlogPost(int id, BlogPost updatedBlogPost)
         {
-            if (id != blogPost.Id)
+            if (id != updatedBlogPost.Id)
             {
-                return BadRequest();
+                return BadRequest("ID in the request body does not match the ID in the route.");
             }
 
-            _context.Entry(blogPost).State = EntityState.Modified;
+            // Check if the blog post exists
+            var existingBlogPost = await _context.BlogPosts.FindAsync(id);
+            if (existingBlogPost == null)
+            {
+                return NotFound("Blog post not found.");
+            }
 
+            // Update the properties of the existing blog post
+            existingBlogPost.Title = updatedBlogPost.Title;
+            existingBlogPost.Content = updatedBlogPost.Content;
+           // existingBlogPost.AuthorId = updatedBlogPost.AuthorId; // Assuming AuthorId can be updated
+                                                                  // Update other properties as needed
+
+            // Save changes to the database
             try
             {
                 await _context.SaveChangesAsync();
+                return NoContent(); // Update successful
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!BlogPostExists(id))
                 {
-                    return NotFound();
+                    return NotFound("Blog post not found.");
                 }
                 else
                 {
                     throw;
                 }
             }
-
-            return NoContent();
         }
+
 
         // DELETE: api/blog/delete/{id}
         [HttpDelete("delete/{id}")]

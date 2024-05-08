@@ -14,6 +14,9 @@ namespace ArpickAPI.Models.Domain
         public DbSet<TokenInfo> TokenInfo { get; set; }
         public DbSet<BlogPost> BlogPosts { get; set; }
         public DbSet<Comments> CommentPosts { get; set; }
+        public DbSet<UpVote> UpVote { get; set; }
+        public DbSet<DownVote> DownVote { get; set; }
+        public DbSet<Notification> Notification { get; set; }
 
 
     }
