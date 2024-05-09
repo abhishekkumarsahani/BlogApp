@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./Register.css"; // Import your custom CSS file
+import "../Auth/Register/Register.css"; // Import your custom CSS file
+import AdminSideBar from "./AdminSideBar";
 
-const Registration = () => {
+const AdminRegistration = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -15,12 +16,12 @@ const Registration = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://localhost:44385/api/authorization/registration",
+        "https://localhost:44385/api/authorization/registrationAdmin",
         { username, password, email, name }
       );
       if (response.data.statusCode === 1) {
         // Registration successful, redirect to login
-        navigate("/login");
+        navigate("/dashboard/admin");
       } else {
         setError(response.data.message);
       }
@@ -31,7 +32,12 @@ const Registration = () => {
   };
 
   return (
-    <div className="registration-container">
+    <div style={{display: "flex", flexDirection: "row"}}>
+        <div>
+            <AdminSideBar />
+        </div>
+    <div className="registration-container" >
+        
       <h2>Registration</h2>
       {error && <div className="error">{error}</div>}
       <form onSubmit={handleSubmit}>
@@ -80,7 +86,8 @@ const Registration = () => {
         </button>
       </form>
     </div>
+    </div>
   );
 };
 
-export default Registration;
+export default AdminRegistration;

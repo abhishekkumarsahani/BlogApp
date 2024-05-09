@@ -43,8 +43,8 @@ namespace ArpickAPI.Controllers
             return notification;
         }
 
-        // GET: api/notifications/}
-        [HttpGet("Read/{user}")]
+        // PUT: api/notifications/}
+        [HttpPut("Read/{user}")]
         [ActionName("Read")]
         public async Task<ActionResult<IEnumerable<Notification>>> Read(string user)
         {

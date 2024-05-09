@@ -13,6 +13,7 @@ import AdminDashboard from "./pages/Admin/AdminDashboard";
 import CreateBlogPost from "./pages/User/CreateBlog";
 import ShowBlog from "./pages/User/ShowBlog/ShowBlog";
 import UpdateProfile from "./pages/User/UserProfile";
+import AdminRegistration from "./pages/Admin/AdminRegister";
 
 const App = () => {
   return (
@@ -31,7 +32,8 @@ const App = () => {
           </Route>
 
           <Route path="/dashboard" element={<AdminRoute />}>
-            <Route path="admin" element={<AdminDashboard />} />
+          <Route path="admin" element={<AdminDashboard />} />
+          <Route path="admin/addadmin" element={<AdminRegistration />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Registration />} />

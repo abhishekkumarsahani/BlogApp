@@ -12,14 +12,15 @@
   border-radius: 8px;
   padding: 20px;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+.blog-post:hover {
+  background-color: rgba(241, 236, 236, 0.8);
 }
 
 .blog-post img {
-  width: 5cm;
-  height: 5cm;
-  margin-left: 250px;
-  align-items: center;
+  display: block;
+  margin: auto;
   border-radius: 8px;
   margin-bottom: 20px;
 }
@@ -44,7 +45,8 @@
 
 .vote-buttons {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  gap: 20px;
 }
 
 .vote-button {
@@ -59,4 +61,12 @@
 
 .vote-button:hover {
   background-color: #0056b3;
+}
+
+.btu:hover {
+  color: green;
+}
+
+.btd:hover {
+  color: red;
 }

@@ -42,14 +42,16 @@ const Login = () => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Username:</label>
-          <input type="text" className="form-control" value={username} onChange={(e) => setUsername(e.target.value)} />
+          <input type="text" className="form-control" value={username} onChange={(e) => setUsername(e.target.value)} placeholder='Enter your username' />
         </div>
         <div className="form-group">
           <label>Password:</label>
-          <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='********'/>
         </div>
-        <button type="submit" className="btn btn-primary">Login</button>
+        <div style={{display :"flex", flexDirection: "column", gap: "10px"}}>
+        <button type="submit" className="btn btn-dark">Login</button>
         <button type="button" onClick={() => navigate("/forgot-password")} className="btn btn-link">Forgot Password</button>
+        </div>
       </form>
     </div>
   );

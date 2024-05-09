@@ -69,7 +69,7 @@ const CreateBlogPost = () => {
         postData
       );
       console.log("Blog post created:", response.data);
-      navigate('/');
+      navigate('/dashboard/user/blog/showBlog');
       // You can redirect the user to the newly created blog post or another page here
     } catch (error) {
       console.error("Error creating blog post:", error);
