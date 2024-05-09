@@ -17,10 +17,10 @@ const Navbar = () => {
     toast.success("Logout Successfully");
   };
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top mb-0">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
-          Your Brand
+          Blog APP
         </NavLink>
         <button
           className="navbar-toggler"
@@ -40,6 +40,7 @@ const Navbar = () => {
                 Home
               </NavLink>
             </li>
+            
             {!auth.user ? (
               <>
                 <li className="nav-item">
@@ -54,8 +55,19 @@ const Navbar = () => {
                 </li>
               </>
             ) : (
-              <>
-                <li className="nav-item dropdown">
+              <div style={{marginRight: "10px", display: "flex"}}>
+              <li className="nav-item">
+              <NavLink
+                to={`/dashboard/${
+                  auth?.user?.role === "Admin" ? "admin" : "user"
+                }`}
+                style={{ color: "white" }}
+                className="nav-link"
+              >
+                Dashboard
+              </NavLink>
+            </li>
+                <li className="nav-item dropdown"> 
                   <NavLink
                     className="nav-link dropdown-toggle"
                     href="#"
@@ -66,7 +78,7 @@ const Navbar = () => {
                     {auth?.user?.username}
                   </NavLink>
                   <ul className="dropdown-menu">
-                    <li>
+                    {/* <li>
                       <NavLink
                         to={`/dashboard/${
                           auth?.user?.role === "Admin" ? "admin" : "user"
@@ -75,7 +87,7 @@ const Navbar = () => {
                       >
                         Dashboard
                       </NavLink>
-                    </li>
+                    </li> */}
                     <li>
                       <NavLink
                         onClick={handleLogout}
@@ -87,7 +99,7 @@ const Navbar = () => {
                     </li>
                   </ul>
                 </li>
-              </>
+              </div>
             )}
           </ul>
         </div>
