@@ -3,6 +3,7 @@ using ArpickAPI.Models.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 
 namespace ArpickAPI.Controllers
 {
@@ -31,12 +32,21 @@ namespace ArpickAPI.Controllers
 
             return blogPost;
         }
-        // GET: api/blog
         [HttpGet]
-        public ActionResult<IEnumerable<BlogPost>> GetBlogPosts()
+        public ActionResult<IEnumerable<BlogPost>> GetBlogPosts(int pageNumber = 1, int pageSize = 5)
         {
-            // Retrieve all blog posts without any sorting
-            var blogPosts = _context.BlogPosts.ToList();
+            var totalBlogs = _context.BlogPosts.Count();
+
+            var totalpgs = Math.Ceiling((decimal)totalBlogs / pageSize);
+
+
+            var blogPosts = _context.BlogPosts
+                                 .Skip((pageNumber - 1) * pageSize)
+                                 .Take(pageSize)
+                                 .ToList();
+
+            Response.Headers.Add("X-Total-Count", totalBlogs.ToString());
+
             return blogPosts;
         }
 

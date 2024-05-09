@@ -39,13 +39,33 @@ namespace ArpickAPI.Controllers
             }
         }
 
+        /*  [HttpGet("Viewcomments")]
+          public async Task<ActionResult<IEnumerable<Comments>>> GetComments()
+          {       
+              try
+              {
+                  // Retrieve all comments from the database
+                  var comments = await _context.CommentPosts.ToListAsync();
+
+                  // Return the comments
+                  return Ok(comments);
+              }
+              catch (Exception ex)
+              {
+                  // Log the exception
+                  Console.WriteLine($"Error occurred while retrieving comments: {ex}");
+                  return StatusCode(500, "Internal server error");
+              }
+          }*/
         [HttpGet("Viewcomments")]
-        public async Task<ActionResult<IEnumerable<Comments>>> GetComments()
-        {       
+        public async Task<ActionResult<IEnumerable<Comments>>> GetComments([FromQuery] int Post_id)
+        {
             try
             {
-                // Retrieve all comments from the database
-                var comments = await _context.CommentPosts.ToListAsync();
+                // Retrieve comments for the specified post_id from the database
+                var comments = await _context.CommentPosts
+                    .Where(c => c.Post_id == Post_id)
+                    .ToListAsync();
 
                 // Return the comments
                 return Ok(comments);

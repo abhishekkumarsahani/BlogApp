@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./ShowBlog.css"; // Import CSS for styling
+import "../../Blog.css"; // Import CSS for styling
 import { useAuth } from "../../../context/auth";
 import SideBars from "../SideBars";
 import { useNavigate } from "react-router-dom";
+import { FaUserSecret } from "react-icons/fa6";
 
 const ShowBlog = () => {
   const [auth] = useAuth(); // Retrieve the user ID from context
@@ -16,7 +18,7 @@ const ShowBlog = () => {
     id: "", // Add an ID field to editedPost
     title: "",
     content: "",
-    authorName: "",
+    authorName: auth.user.userName,
     imagePath: "",
     authorId: auth.user.userId, // Author ID from auth context
   });
@@ -43,7 +45,9 @@ const ShowBlog = () => {
     try {
       // Check if the ID in the route matches the ID in the edited post
       if (id !== editedPost.id) {
-        console.error("ID in the request body does not match the ID in the route.");
+        console.error(
+          "ID in the request body does not match the ID in the route."
+        );
         return; // Exit early if IDs don't match
       }
 
@@ -73,7 +77,7 @@ const ShowBlog = () => {
         `https://localhost:44385/api/blog/user/${auth?.user?.userId}`
       );
       setBlogPosts(response.data);
-      navigate('/dashboard/user/blog/showBlog');
+      navigate("/dashboard/user/blog/showBlog");
     } catch (error) {
       console.error("Error deleting blog post:", error);
     }
@@ -81,7 +85,14 @@ const ShowBlog = () => {
 
   const handleEditPost = (id, title, content, authorName, imagePath) => {
     setEditingPostId(id);
-    setEditedPost({ id, title, content, authorName, imagePath, authorId: auth.user.userId });
+    setEditedPost({
+      id,
+      title,
+      content,
+      authorName,
+      imagePath,
+      authorId: auth.user.userId,
+    });
   };
 
   const handleSaveEdit = () => {
@@ -97,48 +108,73 @@ const ShowBlog = () => {
   }
 
   if (blogPosts.length === 0) {
-    return <div className="not-found">No blog posts found for this user</div>;
+    return (
+      <div style={{ display: "flex", flexDirection: "row", gap: "35%" }}>
+        <SideBars />
+        <div className="not-found" style={{marginTop: "200px", color: "red"}}><p>No blog posts found for this user!</p></div>
+      </div>
+    );
   }
 
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
-      <div>
+      <div style={{ position: "fixed" }}>
         <SideBars />
       </div>
-      <div className="blog-posts-container">
+      <div className="blog-container">
         {blogPosts.map((blogPost) => (
-          <div key={blogPost.id} className="blog-post">
-            <h2 className="title">Title: {blogPost.title}</h2>
-            <p className="content">Content: {blogPost.content}</p>
-            <p className="author">Author: {blogPost.authorName}</p>
-            <img className="image" src={blogPost.imagePath} alt="Blog" />
+          <div key={blogPost.id} className="blog-post" style={{marginLeft: "100px"}}>
+            <p
+              className="author"
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                gap: "20px",
+                padding: "10px",
+                textDecoration: "underline",
+              }}
+            >
+              <FaUserSecret style={{ height: "30px", width: "30px" }} />
+              {blogPost.authorName}
+            </p>
+            <p style={{ fontFamily: "Verdana", fontSize: "25px" }}>
+              {blogPost.title}
+            </p>
+            <p style={{ fontFamily: "Verdana", fontSize: "15px" }}>
+              {blogPost.content}
+            </p>
+            {blogPost.imagePath && (
+              <img
+                className="image"
+                src={blogPost.imagePath}
+                alt="Blog"
+                style={{ width: "400px", height: "400px", objectFit: "cover" }}
+              />
+            )}
             <div className="actions">
               {editingPostId === blogPost.id ? (
                 <>
                   <input
+                    className="form-control"
+                    id="floatingInput"
+                    placeholder="Enter the blog title"
                     type="text"
                     value={editedPost.title}
                     onChange={(e) =>
                       setEditedPost({ ...editedPost, title: e.target.value })
                     }
                   />
+               
                   <textarea
+                  className="form-control"
                     value={editedPost.content}
                     onChange={(e) =>
                       setEditedPost({ ...editedPost, content: e.target.value })
                     }
                   />
+
                   <input
-                    type="text"
-                    value={editedPost.authorName}
-                    onChange={(e) =>
-                      setEditedPost({
-                        ...editedPost,
-                        authorName: e.target.value,
-                      })
-                    }
-                  />
-                  <input
+                  className="form-control"
                     type="file"
                     onChange={(e) => {
                       const file = e.target.files[0];
@@ -152,12 +188,17 @@ const ShowBlog = () => {
                       };
                     }}
                   />
-                  <button onClick={handleSaveEdit}>Update</button>
-                  <button onClick={handleCancelEdit}>Cancel</button>
+                  <button className="btn btn-success" onClick={handleSaveEdit}>
+                    Update
+                  </button>
+                  <button className="btn btn-danger" onClick={handleCancelEdit}>
+                    Cancel
+                  </button>
                 </>
               ) : (
                 <>
                   <button
+                    className="btn btn-dark"
                     onClick={() =>
                       handleEditPost(
                         blogPost.id,
@@ -170,7 +211,10 @@ const ShowBlog = () => {
                   >
                     Edit
                   </button>
-                  <button onClick={() => handleDeletePost(blogPost.id)}>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => handleDeletePost(blogPost.id)}
+                  >
                     Delete
                   </button>
                 </>

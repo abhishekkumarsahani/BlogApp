@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./UserDashboard.css";
+import "../User/UserDashboard.css";
 import { NavLink } from "react-router-dom";
 
 import { useAuth } from "../../context/auth";
@@ -8,8 +8,8 @@ import toast from "react-hot-toast";
 import { IoIosCreate } from "react-icons/io";
 import { CiBoxList, CiLogout } from "react-icons/ci";
 import { FaUserShield } from "react-icons/fa";
-
-const SideBars = () => {
+import { MdOutlineDashboard } from "react-icons/md";
+const AdminSideBar = () => {
   const [auth, setAuth] = useAuth();
 
   const handleLogout = () => {
@@ -22,6 +22,7 @@ const SideBars = () => {
     toast.success("Logout Successfully");
   };
   return (
+
     <div
       className="sidebar mt-5"
       style={{ backgroundColor: "#181818", height: "93.5vh" }}
@@ -39,47 +40,36 @@ const SideBars = () => {
       >
         <FaUserShield
           className="icon_header"
-          style={{ height: "50px", width: "50px" }}
+          style={{ height: "30px", width: "30px" }}
         />{" "}
-        Dashboard
+        Admin
       </div>
       <ul className="sidebar-menu">
         <li className="sidebar-item">
           <Link
-            to="/dashboard/user"
+            to="/dashboard/admin"
+            className="sidebar-link"
+            style={{ color: "white" }}
+          >
+            <MdOutlineDashboard
+              style={{ width: "25px", height: "25px", marginBottom: "5px" }}
+            />{" "}
+            <label style={{ marginLeft: "20px" }}>Dashboard</label>
+          </Link>
+        </li>
+        <li className="sidebar-item">
+          <Link
+            to="/dashboard/admin/addadmin"
             className="sidebar-link"
             style={{ color: "white" }}
           >
             <IoIosCreate
               style={{ width: "25px", height: "25px", marginBottom: "5px" }}
             />{" "}
-            <label style={{ marginLeft: "20px" }}>View Profile</label>
+            <label style={{ marginLeft: "20px" }}>Add Admin</label>
           </Link>
         </li>
-        <li className="sidebar-item">
-          <Link
-            to="/dashboard/user/blog/create"
-            className="sidebar-link"
-            style={{ color: "white" }}
-          >
-            <IoIosCreate
-              style={{ width: "25px", height: "25px", marginBottom: "5px" }}
-            />{" "}
-            <label style={{ marginLeft: "20px" }}>Create Blog</label>
-          </Link>
-        </li>
-        <li className="sidebar-item">
-          <Link
-            to="/dashboard/user/blog/showBlog"
-            className="sidebar-link"
-            style={{ color: "white" }}
-          >
-            <CiBoxList
-              style={{ width: "25px", height: "25px", marginBottom: "5px" }}
-            />{" "}
-            <label style={{ marginLeft: "20px" }}>My Blogs</label>
-          </Link>
-        </li>
+       
         <li className="sidebar-item">
           <NavLink
             onClick={handleLogout}
@@ -98,4 +88,4 @@ const SideBars = () => {
   );
 };
 
-export default SideBars;
+export default AdminSideBar;
