@@ -12,6 +12,7 @@ import AdminRoute from "./Components/Routes/AdminRoute";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import CreateBlogPost from "./pages/User/CreateBlog";
 import ShowBlog from "./pages/User/ShowBlog/ShowBlog";
+import UpdateProfile from "./pages/User/UserProfile";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
             <Route path="user" element={<UserDashboard />} />
             <Route path="user/blog/create" element={<CreateBlogPost />} />
             <Route path="user/blog/showBlog" element={<ShowBlog />} />
+            <Route path="user/viewProfile" element={<UpdateProfile />} />
           </Route>
 
           <Route path="/dashboard" element={<AdminRoute />}>

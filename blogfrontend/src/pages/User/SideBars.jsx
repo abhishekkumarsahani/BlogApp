@@ -46,6 +46,18 @@ const SideBars = () => {
       <ul className="sidebar-menu">
         <li className="sidebar-item">
           <Link
+            to="/dashboard/user/viewProfile"
+            className="sidebar-link"
+            style={{ color: "white" }}
+          >
+            <IoIosCreate
+              style={{ width: "25px", height: "25px", marginBottom: "5px" }}
+            />{" "}
+            <label style={{ marginLeft: "20px" }}>View Profile</label>
+          </Link>
+        </li>
+        <li className="sidebar-item">
+          <Link
             to="/dashboard/user/blog/create"
             className="sidebar-link"
             style={{ color: "white" }}
