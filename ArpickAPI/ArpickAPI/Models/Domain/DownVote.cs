@@ -7,5 +7,7 @@
         public int BlogId { get; set; }
 
         public string username { get; set; }
+        public DateTime? CreatedAt { get; set; }
+
     }
 }

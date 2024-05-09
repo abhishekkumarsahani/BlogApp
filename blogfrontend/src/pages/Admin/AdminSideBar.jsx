@@ -69,6 +69,18 @@ const AdminSideBar = () => {
             <label style={{ marginLeft: "20px" }}>Add Admin</label>
           </Link>
         </li>
+        <li className="sidebar-item">
+          <Link
+            to="/dashboard/admin/stats"
+            className="sidebar-link"
+            style={{ color: "white" }}
+          >
+            <IoIosCreate
+              style={{ width: "25px", height: "25px", marginBottom: "5px" }}
+            />{" "}
+            <label style={{ marginLeft: "20px" }}>Post stats</label>
+          </Link>
+        </li>
        
         <li className="sidebar-item">
           <NavLink

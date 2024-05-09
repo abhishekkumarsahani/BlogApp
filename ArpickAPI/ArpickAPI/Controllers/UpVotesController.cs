@@ -51,6 +51,8 @@ namespace ArpickAPI.Controllers
             UpVote data = new UpVote();
             data.BlogId = upVote.BlogId;
             data.username = upVote.username;
+            data.CreatedAt = DateTime.Now;
+
 
             var exists = _context.UpVote.FirstOrDefault(x => x.BlogId == upVote.BlogId && x.username == upVote.username);
             if (exists != null) { 

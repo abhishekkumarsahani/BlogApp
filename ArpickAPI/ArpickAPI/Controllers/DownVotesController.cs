@@ -52,6 +52,8 @@ namespace ArpickAPI.Controllers
             DownVote data = new DownVote();
             data.BlogId = downVote.BlogId;
             data.username = downVote.username;
+            data.CreatedAt = DateTime.Now;
+
 
             var exists = _context.DownVote.FirstOrDefault(x => x.BlogId == downVote.BlogId && x.username == downVote.username);
             if (exists != null)

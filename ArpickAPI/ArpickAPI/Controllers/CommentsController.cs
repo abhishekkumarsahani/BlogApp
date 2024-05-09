@@ -4,6 +4,7 @@ using ArpickAPI.Models.DTO;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ArpickAPI.Controllers
 {
@@ -23,7 +24,8 @@ namespace ArpickAPI.Controllers
         {
             try
             {
-               
+                comment.CreatedAt = DateTime.Now;
+
                 // Add the comment to the database
                 _context.CommentPosts.Add(comment);
                 await _context.SaveChangesAsync();

@@ -14,6 +14,7 @@ import CreateBlogPost from "./pages/User/CreateBlog";
 import ShowBlog from "./pages/User/ShowBlog/ShowBlog";
 import UpdateProfile from "./pages/User/UserProfile";
 import AdminRegistration from "./pages/Admin/AdminRegister";
+import PostStats from "./pages/Admin/PostStats";
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/dashboard" element={<AdminRoute />}>
           <Route path="admin" element={<AdminDashboard />} />
           <Route path="admin/addadmin" element={<AdminRegistration />} />
+          <Route path="admin/stats" element={<PostStats />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Registration />} />

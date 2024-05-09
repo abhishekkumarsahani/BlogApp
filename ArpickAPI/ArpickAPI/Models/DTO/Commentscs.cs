@@ -6,6 +6,8 @@
         public string Comment { get; set; }
         public string AuthorName { get; set; } 
         public int Post_id { get; set; }
+        public DateTime? CreatedAt { get; set; }
+
 
     }
 }
