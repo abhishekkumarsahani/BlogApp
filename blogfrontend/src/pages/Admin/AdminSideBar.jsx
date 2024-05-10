@@ -9,6 +9,9 @@ import { IoIosCreate } from "react-icons/io";
 import { CiBoxList, CiLogout } from "react-icons/ci";
 import { FaUserShield } from "react-icons/fa";
 import { MdOutlineDashboard } from "react-icons/md";
+import { FaUserGear } from "react-icons/fa6";
+import { IoBarChartSharp } from "react-icons/io5";
+import { AiOutlineStock } from "react-icons/ai";
 const AdminSideBar = () => {
   const [auth, setAuth] = useAuth();
 
@@ -63,10 +66,22 @@ const AdminSideBar = () => {
             className="sidebar-link"
             style={{ color: "white" }}
           >
-            <IoIosCreate
+            <FaUserGear
               style={{ width: "25px", height: "25px", marginBottom: "5px" }}
             />{" "}
             <label style={{ marginLeft: "20px" }}>Add Admin</label>
+          </Link>
+        </li>
+        <li className="sidebar-item">
+          <Link
+            to="/dashboard/admin/topblogs"
+            className="sidebar-link"
+            style={{ color: "white" }}
+          >
+            <AiOutlineStock
+              style={{ width: "25px", height: "25px", marginBottom: "5px" }}
+            />{" "}
+            <label style={{ marginLeft: "20px" }}>Top Blogs</label>
           </Link>
         </li>
         <li className="sidebar-item">
@@ -75,7 +90,7 @@ const AdminSideBar = () => {
             className="sidebar-link"
             style={{ color: "white" }}
           >
-            <IoIosCreate
+            <IoBarChartSharp
               style={{ width: "25px", height: "25px", marginBottom: "5px" }}
             />{" "}
             <label style={{ marginLeft: "20px" }}>Post stats</label>

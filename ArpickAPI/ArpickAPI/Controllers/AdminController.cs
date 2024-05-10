@@ -1,7 +1,9 @@
 ﻿using ArpickAPI.Models.Domain;
+using ArpickAPI.Models.DTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -93,6 +95,26 @@ namespace ArpickAPI.Controllers
             const int commentWeightage = 1;
 
             return (upvoteWeightage * upvotes) + (downvoteWeightage * downvotes) + (commentWeightage * comments);
+        }
+
+        [HttpGet("topblogs")]
+        public async Task<ActionResult<IEnumerable<BlogPost>>> GetTopBlogsByLikes()
+        {
+            var top3Blogs = await _context.UpVote
+                .GroupBy(upvote => upvote.BlogId)
+                .Select(group => new { BlogId = group.Key, Likes = group.Count() })
+                .OrderByDescending(blog => blog.Likes)
+                .Take(3)
+                .ToListAsync();
+
+            var blogIds = top3Blogs.Select(blog => blog.BlogId);
+
+            // Fetch the details of the top 3 blogs
+            var top3BlogPosts = await _context.BlogPosts
+                .Where(blog => blogIds.Contains(blog.Id))
+                .ToListAsync();
+
+            return top3BlogPosts;
         }
     }
 }

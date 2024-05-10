@@ -21,25 +21,29 @@ const Blog = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [pageSize, setPageSize] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
+  const [reverseOrder, setReverseOrder] = useState(false);
 
   useEffect(() => {
     const fetchBlogPosts = async () => {
       try {
-        const response = await axios.get(
-          `https://localhost:44385/api/blog?pageNumber=${currentPage}&pageSize=${pageSize}`
+          const response = await axios.get(`https://localhost:44385/api/blog?pageNumber=${currentPage}&pageSize=${pageSize}`
         );
-        setBlogPosts(response.data);
-        const totalCount = parseInt(response.headers["x-total-count"], 5);
-        setTotalPages(Math.ceil(totalCount / pageSize));
-        console.log("Current Page:", currentPage);
-        console.log("Page Size:", pageSize);
-      } catch (error) {
-        console.error("Error fetching blog posts:", error);
-      }
-    };
+          
+          setBlogPosts(response.data);
+          const sortedPosts = reverseOrder ? response.data.slice().reverse() : response.data;
+          setBlogPosts(sortedPosts);
+          const totalCount = parseInt(response.headers['x-total-count'], 5);
+          setTotalPages(Math.ceil(totalCount / pageSize));
+          console.log("Current Page:", currentPage);
+          console.log("Page Size:", pageSize);
 
-    fetchBlogPosts();
-  }, [currentPage, pageSize]);
+      } catch (error) {
+          console.error('Error fetching blog posts:', error);
+      }
+  };
+
+ fetchBlogPosts();
+}, [currentPage, pageSize,reverseOrder]);
 
   // Function to handle page change
   const handlePageChange = (page) => {
@@ -200,10 +204,15 @@ const Blog = () => {
     // Then close the popup
     handleClosePopup();
   };
+  const handleReverseOrder = () => {
+    setReverseOrder(!reverseOrder);
+  };
 
   return (
     <div className="blog-container">
+      <button className="btn btn-dark"onClick={handleReverseOrder} style={{ marginBottom: "10px" }}>Recent</button>
       <h2>Blog Posts</h2>
+      
       {blogPosts.map((post) => (
         <div key={post.id} className="blog-post">
           <p

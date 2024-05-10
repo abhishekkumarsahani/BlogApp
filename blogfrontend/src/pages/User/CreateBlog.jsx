@@ -54,7 +54,7 @@ const CreateBlogPost = () => {
   const handleCreateBlogPost = async () => {
     try {
       const userId = auth?.user?.userId; // Access the userId from the auth object
-      const authorName = auth?.user?.username
+      const authorName = auth?.user?.username;
       // Create blog post with image path
       const postData = {
         title,
@@ -69,7 +69,7 @@ const CreateBlogPost = () => {
         postData
       );
       console.log("Blog post created:", response.data);
-      navigate('/dashboard/user/blog/showBlog');
+      navigate("/dashboard/user/blog/showBlog");
       // You can redirect the user to the newly created blog post or another page here
     } catch (error) {
       console.error("Error creating blog post:", error);
@@ -120,7 +120,7 @@ const CreateBlogPost = () => {
                 height: "200px",
                 objectFit: "cover",
                 marginTop: "15px",
-                marginLeft: "20%"
+                marginLeft: "20%",
               }}
               alt="Preview"
               className="image-preview"
