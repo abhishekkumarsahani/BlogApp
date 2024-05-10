@@ -7,7 +7,9 @@ import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
 import { IoIosCreate } from "react-icons/io";
 import { CiBoxList, CiLogout } from "react-icons/ci";
-import { FaUserShield } from "react-icons/fa";
+import { FaUserShield, FaUserCircle } from "react-icons/fa";
+
+
 
 const SideBars = () => {
   const [auth, setAuth] = useAuth();
@@ -50,10 +52,10 @@ const SideBars = () => {
             className="sidebar-link"
             style={{ color: "white" }}
           >
-            <IoIosCreate
+            <FaUserCircle
               style={{ width: "25px", height: "25px", marginBottom: "5px" }}
             />{" "}
-            <label style={{ marginLeft: "20px" }}>View Profile</label>
+            <label style={{ marginLeft: "20px", fontFamily: "Verdana", fontWeight: "normal" }}>View Profile</label>
           </Link>
         </li>
         <li className="sidebar-item">
@@ -65,7 +67,7 @@ const SideBars = () => {
             <IoIosCreate
               style={{ width: "25px", height: "25px", marginBottom: "5px" }}
             />{" "}
-            <label style={{ marginLeft: "20px" }}>Create Blog</label>
+            <label style={{ marginLeft: "20px", fontFamily: "Verdana", fontWeight: "normal" }}>Create Blog</label>
           </Link>
         </li>
         <li className="sidebar-item">
@@ -77,7 +79,7 @@ const SideBars = () => {
             <CiBoxList
               style={{ width: "25px", height: "25px", marginBottom: "5px" }}
             />{" "}
-            <label style={{ marginLeft: "20px" }}>My Blogs</label>
+            <label style={{ marginLeft: "20px", fontFamily: "Verdana", fontWeight: "normal" }}>My Blogs</label>
           </Link>
         </li>
         <li className="sidebar-item">
@@ -90,7 +92,7 @@ const SideBars = () => {
             <CiLogout
               style={{ width: "25px", height: "25px", marginBottom: "5px" }}
             />{" "}
-            <label style={{ marginLeft: "20px" }}>Logout</label>
+            <label style={{ marginLeft: "20px", fontFamily: "Verdana", fontWeight: "normal" }}>Logout</label>
           </NavLink>
         </li>
       </ul>

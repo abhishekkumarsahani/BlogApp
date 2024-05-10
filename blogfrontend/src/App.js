@@ -15,6 +15,7 @@ import ShowBlog from "./pages/User/ShowBlog/ShowBlog";
 import UpdateProfile from "./pages/User/UserProfile";
 import AdminRegistration from "./pages/Admin/AdminRegister";
 import PostStats from "./pages/Admin/PostStats";
+import TopBlogs from "./pages/Admin/TopBlogs";
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="admin" element={<AdminDashboard />} />
           <Route path="admin/addadmin" element={<AdminRegistration />} />
           <Route path="admin/stats" element={<PostStats />} />
+          <Route path="admin/topblogs" element={<TopBlogs />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Registration />} />

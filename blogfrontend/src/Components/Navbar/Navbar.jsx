@@ -94,8 +94,11 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+       
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
+          {auth.user ? (
+            <>
             <li className="nav-item">
               <div style={{ position: "relative" }}>
                 <FontAwesomeIcon
@@ -129,6 +132,10 @@ const Navbar = () => {
                 )}
               </div>
             </li>
+            </>
+          ) : (<>
+          </>)}
+          
             <li className="nav-item">
               <NavLink className="nav-link" to="/">
                 Home

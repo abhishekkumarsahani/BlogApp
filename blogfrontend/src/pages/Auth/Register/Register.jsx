@@ -31,54 +31,80 @@ const Registration = () => {
   };
 
   return (
-    <div className="registration-container">
-      <h2>Registration</h2>
-      {error && <div className="error">{error}</div>}
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Name:</label>
-          <input
-            type="text"
-            className="form-control"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Enter Full Name"
-          />
-        </div>
-        <div className="form-group">
-          <label>Email:</label>
-          <input
-            type="email"
-            className="form-control"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="example@gmail.com"
-          />
-        </div>
-        <div className="form-group">
-          <label>Username:</label>
-          <input
-            type="text"
-            className="form-control"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="Create username"
-          />
-        </div>
-        <div className="form-group">
-          <label>Password:</label>
-          <input
-            type="password"
-            className="form-control"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="********"
-          />
-        </div>
-        <button type="submit" className="btn btn-dark">
-          Register
-        </button>
-      </form>
+    <div
+      style={{
+        backgroundColor: "#d9d0b8",
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div className="registration-container">
+        <h2 style={{ color: "white", fontFamily: "Verdana" }}>Registration</h2>
+        {error && <div className="error">{error}</div>}
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label style={{ color: "white", fontFamily: "Verdana" }}>
+              Name
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Enter Full Name"
+            />
+          </div>
+          <div className="form-group">
+            <label style={{ color: "white", fontFamily: "Verdana" }}>
+              Email
+            </label>
+            <input
+              type="email"
+              className="form-control"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="example@gmail.com"
+            />
+          </div>
+          <div className="form-group">
+            <label style={{ color: "white", fontFamily: "Verdana" }}>
+              Username
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Create username"
+            />
+          </div>
+          <div className="form-group">
+            <label style={{ color: "white", fontFamily: "Verdana" }}>
+              Password
+            </label>
+            <input
+              type="password"
+              className="form-control"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="********"
+            />
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+            }}
+          >
+            <button type="submit" className="btn btn-outline-light">
+              Register
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
