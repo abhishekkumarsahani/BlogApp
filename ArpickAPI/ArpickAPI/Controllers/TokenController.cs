@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ArpickAPI.Controllers
 {
-    [Route("api/[controller]/{action}")]
+    [Route("api/[controller]")]
     [ApiController]
     public class TokenController : ControllerBase
     {
@@ -20,7 +20,7 @@ namespace ArpickAPI.Controllers
 
         }
 
-        [HttpPost]
+        [HttpPost("Refresh")]
         public IActionResult Refresh(RefreshTokenRequest tokenApiModel)
         {
             if (tokenApiModel is null)
@@ -44,7 +44,8 @@ namespace ArpickAPI.Controllers
         }
 
         //revoken is use for removing token enntry
-        [HttpPost, Authorize]
+        [HttpPost("Revoke")]
+        [Authorize]
         public IActionResult Revoke()
         {
             try

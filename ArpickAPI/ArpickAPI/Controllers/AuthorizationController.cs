@@ -10,7 +10,7 @@ using System.IdentityModel.Tokens.Jwt;
 
 namespace ArpickAPI.Controllers
 {
-    [Route("api/[controller]/{action}")]
+    [Route("api/[controller]")]
     [ApiController]
     public class AuthorizationController : ControllerBase
     {
@@ -30,7 +30,7 @@ namespace ArpickAPI.Controllers
             this._tokenService = tokenService;
         }
 
-        [HttpPost]
+        [HttpPost("changepassword")]
         public async Task<IActionResult> ChangePassword(ChangePasswordModel model)
         {
             var status = new Status();
@@ -69,7 +69,7 @@ namespace ArpickAPI.Controllers
             return Ok(status);
         }
 
-        [HttpPost]
+        [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
             var user = await userManager.FindByNameAsync(model.Username);
@@ -142,7 +142,7 @@ namespace ArpickAPI.Controllers
         }
 
 
-        [HttpPost]
+        [HttpPost("registration")]
         public async Task<IActionResult> Registration([FromBody] RegistrationModel model)
         {
             var status = new Status();
@@ -192,7 +192,7 @@ namespace ArpickAPI.Controllers
         }
 
         // //after registering admin we will comment this code, because i want only one admin in this application
-        [HttpPost]
+        [HttpPost("registrationAdmin")]
         public async Task<IActionResult> RegistrationAdmin([FromBody] RegistrationModel model)
         {
             var status = new Status();
