@@ -9,7 +9,6 @@ const CreateBlogPost = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [image, setImage] = useState(null); // State to store the selected image file
-  const [imagePath, setImagePath] = useState(""); // State to store the image path
   const [imagePreview, setImagePreview] = useState(null); // State to store the image preview URL
   const [auth] = useAuth(); // Use the useAuth hook to access the auth object
   const navigate = useNavigate();
@@ -26,51 +25,58 @@ const CreateBlogPost = () => {
     reader.readAsDataURL(file);
   };
 
-  const handleImageUpload = async () => {
-    try {
-      // Ensure an image is selected
-      if (!image) {
-        throw new Error("Image is required.");
-      }
-
-      // Upload image
-      let formData = new FormData();
-      formData.append("image", image); // Use "image" as the key
-      const response = await axios.post(
-        "https://localhost:44385/api/Image/upload",
-        formData
-      );
-      if (!response.data.success) {
-        throw new Error(response.data.message);
-      }
-
-      setImagePath(response.data.imageUrl);
-      console.log("Image uploaded successfully:", response.data.imageUrl);
-    } catch (error) {
-      console.error("Error uploading image:", error);
-    }
-  };
-
   const handleCreateBlogPost = async () => {
     try {
       const userId = auth?.user?.userId; // Access the userId from the auth object
       const authorName = auth?.user?.username;
-      // Create blog post with image path
-      const postData = {
-        title,
-        content,
-        authorId: userId,
-        authorName: authorName,
-        imagePath: imagePath,
-      };
 
-      const response = await axios.post(
-        "https://localhost:44385/api/blog/create",
-        postData
-      );
-      console.log("Blog post created:", response.data);
-      navigate("/dashboard/user/blog/showBlog");
-      // You can redirect the user to the newly created blog post or another page here
+      // Check if an image is selected
+      if (image) {
+        // Upload image first
+        let formData = new FormData();
+        formData.append("image", image); // Use "image" as the key
+        const imageResponse = await axios.post(
+          "https://localhost:44385/api/Image/upload",
+          formData
+        );
+
+        if (!imageResponse.data.success) {
+          throw new Error(imageResponse.data.message);
+        }
+
+        const imagePath = imageResponse.data.imageUrl;
+
+        // Create blog post with image path
+        const postData = {
+          title,
+          content,
+          authorId: userId,
+          authorName: authorName,
+          imagePath: imagePath,
+        };
+
+        const response = await axios.post(
+          "https://localhost:44385/api/blog/create",
+          postData
+        );
+        console.log("Blog post created:", response.data);
+        navigate("/dashboard/user/blog/showBlog");
+      } else {
+        // Create blog post without image
+        const postData = {
+          title,
+          content,
+          authorId: userId,
+          authorName: authorName,
+        };
+
+        const response = await axios.post(
+          "https://localhost:44385/api/blog/create",
+          postData
+        );
+        console.log("Blog post created:", response.data);
+        navigate("/dashboard/user/blog/showBlog");
+      }
     } catch (error) {
       console.error("Error creating blog post:", error);
     }
@@ -136,9 +142,6 @@ const CreateBlogPost = () => {
             justifyContent: "center",
           }}
         >
-          <button onClick={handleImageUpload} className=" btn btn-dark">
-            Upload Image
-          </button>
           <button onClick={handleCreateBlogPost} className="btn btn-dark">
             Create Post
           </button>
