@@ -1,7 +1,10 @@
 ﻿using ArpickAPI.Models.Domain;
 using ArpickAPI.Models.DTO;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ArpickAPI.Controllers
 {
@@ -9,16 +12,15 @@ namespace ArpickAPI.Controllers
     [ApiController]
     public class UpVotesController : ControllerBase
     {
-        private readonly DatabaseContext _context; // Assuming ApplicationDbContext is your EF DbContext
+        private readonly DatabaseContext _context;
 
         public UpVotesController(DatabaseContext context)
         {
             _context = context;
         }
 
-        // GET: api/upvotes/
         [HttpGet]
-        public ActionResult<IEnumerable<UpVote>> GetUpVotes()
+        public ActionResult<IEnumerable<UpVote>> RetrieveAllUpVotes()
         {
             var upVote = _context.UpVote.ToList();
 
@@ -32,54 +34,99 @@ namespace ArpickAPI.Controllers
 
         // GET: api/upvotes/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<UpVote>> GetUpVote(int id)
+        public async Task<ActionResult<UpVote>> RetrieveUpVoteById(int id)
         {
-            var upVote = _context.UpVote.FirstOrDefault( x => x.BlogId == id);
-
-            if (upVote == null)
+            try
             {
-                return NotFound();
-            }
+                // Use async method for better performance
+                var upVote = await _context.UpVote
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(x => x.BlogId == id);
 
-            return upVote;
+                if (upVote == null)
+                {
+                    return NotFound(new { message = $"No upvote found with BlogId: {id}" });
+                }
+
+                return Ok(upVote);
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
         // POST: api/upvotes/create
         [HttpPost("create")]
-        public async Task<ActionResult<VoteDTO>> CreateUpVote(VoteDTO upVote)
+        public async Task<ActionResult<VoteDTO>> AddNewUpVote(VoteDTO upVote)
         {
-            UpVote data = new UpVote();
-            data.BlogId = upVote.BlogId;
-            data.username = upVote.username;
-            data.CreatedAt = DateTime.Now;
+            if (upVote == null || !ModelState.IsValid)
+            {
+                return BadRequest(new { message = "Invalid upVote data." });
+            }
 
+            var upVoteEntity = new UpVote
+            {
+                BlogId = upVote.BlogId,
+                username = upVote.username,
+                CreatedAt = DateTime.UtcNow
+            };
 
-            var exists = _context.UpVote.FirstOrDefault(x => x.BlogId == upVote.BlogId && x.username == upVote.username);
-            if (exists != null) { 
+            var upVoteQuery = from uv in _context.UpVote
+                              where uv.BlogId == upVote.BlogId && uv.username == upVote.username
+                              select uv;
+
+            bool isExistingUpVote = await upVoteQuery.AnyAsync();
+
+            if (isExistingUpVote)
+            {
                 return NoContent();
             }
 
-            _context.UpVote.Add(data);
+            _context.UpVote.Add(upVoteEntity);
 
-            var existsInDownVote = _context.DownVote.FirstOrDefault(x => x.BlogId == upVote.BlogId && x.username == upVote.username);
-            if (existsInDownVote != null)
+            var downVoteQuery = _context.DownVote
+                .Where(dv => dv.BlogId == upVote.BlogId && dv.username == upVote.username);
+
+            if (await downVoteQuery.AnyAsync())
             {
-                _context.DownVote.Remove(existsInDownVote);
+                _context.DownVote.RemoveRange(await downVoteQuery.ToListAsync());
             }
 
-            //This section will add notifcation
-            Notification newNotification = new Notification();
-            newNotification.Title = upVote.Title;
-            newNotification.Description = upVote.Description;
-            newNotification.isRead = false;
-            newNotification.User = upVote.NotificationUser;
+            var notification = new Notification
+            {
+                Title = upVote.Title,
+                Description = upVote.Description,
+                isRead = false,
+                User = upVote.NotificationUser
+            };
 
-            _context.Notification.Add(newNotification);
+            _context.Notification.Add(notification);
 
-            await _context.SaveChangesAsync();
+            try
+            {
+                await using var transaction = await _context.Database.BeginTransactionAsync();
 
-            return CreatedAtAction(nameof(GetUpVote), new { id = data.Id }, upVote);
-        
+                var saveResult = await _context.SaveChangesAsync();
+
+                if (saveResult > 0)
+                {
+                    await transaction.CommitAsync();
+                }
+                else
+                {
+                    await transaction.RollbackAsync();
+                    return StatusCode(500, "No changes were made to the database.");
+                }
+            }
+            catch (Exception ex)
+            {
+                await _context.Database.RollbackTransactionAsync();
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+
+            return CreatedAtAction(nameof(RetrieveUpVoteById), new { id = upVoteEntity.Id }, upVote);
         }
     }
 }

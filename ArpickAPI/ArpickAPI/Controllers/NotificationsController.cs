@@ -1,6 +1,9 @@
 ﻿using ArpickAPI.Models.Domain;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ArpickAPI.Controllers
 {
@@ -8,65 +11,75 @@ namespace ArpickAPI.Controllers
     [ApiController]
     public class NotificationsController : ControllerBase
     {
-        private readonly DatabaseContext _context; // Assuming ApplicationDbContext is your EF DbContext
+        private readonly DatabaseContext _dbContext;
 
-        public NotificationsController(DatabaseContext context)
+        public NotificationsController(DatabaseContext dbContext)
         {
-            _context = context;
+            _dbContext = dbContext;
         }
 
         // GET: api/notifications/
         [HttpGet]
-        public ActionResult<IEnumerable<Notification>> GetNotifications()
+        public ActionResult<IEnumerable<Notification>> RetrieveNotifications()
         {
-            var notifications = _context.Notification.ToList();
-
-            if (notifications == null)
+            var notificationsList = FetchNotificationsFromDb();
+            if (notificationsList.Count == 0)
             {
                 return NotFound();
             }
-
-            return notifications;
+            return notificationsList;
         }
 
-        // GET: api/notifications/user}
-        [HttpGet("{user}")]
-        public ActionResult<IEnumerable<Notification>> GetNotification(string user)
+        private List<Notification> FetchNotificationsFromDb()
         {
-            var notification = _context.Notification.Where(x => x.User == user).ToList();
-
-            if (notification == null)
-            {
-                return NotFound();
-            }
-
-            return notification;
+            return _dbContext.Notification.ToList();
         }
 
-        // PUT: api/notifications/}
-        [HttpPut("Read/{user}")]
-        [ActionName("Read")]
-        public async Task<ActionResult<IEnumerable<Notification>>> Read(string user)
+        // GET: api/notifications/{user}
+        [HttpGet("{userId}")]
+        public ActionResult<IEnumerable<Notification>> RetrieveUserNotifications(string userId)
         {
-            var notifications = _context.Notification.Where(x => x.User == user).ToList();
+            var notificationsForUser = GetNotificationsByUserId(userId);
+            if (notificationsForUser.Count == 0)
+            {
+                return NotFound();
+            }
+            return notificationsForUser;
+        }
 
-            if (notifications == null)
+        private List<Notification> GetNotificationsByUserId(string userId)
+        {
+            return _dbContext.Notification.Where(n => n.User == userId).ToList();
+        }
+
+        // PUT: api/notifications/Read/{user}
+        [HttpPut("Read/{userId}")]
+        public async Task<ActionResult<IEnumerable<Notification>>> MarkNotificationsAsRead(string userId)
+        {
+            var notificationsToMark = RetrieveAndPrepareNotifications(userId);
+            if (notificationsToMark.Count == 0)
             {
                 return NotFound();
             }
 
-            foreach ( var notification in notifications )
+            await MarkAsReadAndSave(notificationsToMark);
+            return notificationsToMark;
+        }
+
+        private List<Notification> RetrieveAndPrepareNotifications(string userId)
+        {
+            var notifications = GetNotificationsByUserId(userId);
+            foreach (var notification in notifications)
             {
                 notification.isRead = true;
-                _context.Notification.Update(notification);
             }
-
-            await _context.SaveChangesAsync();
-
             return notifications;
         }
 
-
-
+        private async Task MarkAsReadAndSave(List<Notification> notifications)
+        {
+            _dbContext.Notification.UpdateRange(notifications);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

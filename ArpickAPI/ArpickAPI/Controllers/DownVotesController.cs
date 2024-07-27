@@ -2,6 +2,7 @@
 using ArpickAPI.Models.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace ArpickAPI.Controllers
@@ -35,53 +36,100 @@ namespace ArpickAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<DownVote>> GetDownVote(int id)
         {
-            var downVote = _context.DownVote.FirstOrDefault(x => x.BlogId == id);
-
-            if (downVote == null)
+            if (id <= 0)
             {
-                return NotFound();
+                return BadRequest("Invalid ID provided.");
             }
 
-            return downVote;
+            try
+            {
+                var downVote = await _context.DownVote
+                    .Where(x => x.BlogId == id)
+                    .FirstOrDefaultAsync();
+
+                if (downVote == null)
+                {
+                    return NotFound(new { message = $"DownVote with ID {id} not found." });
+                }
+
+                return Ok(downVote);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
-        // POST: api/upvotes/create
+        // POST: api/downvotes/create
         [HttpPost("create")]
         public async Task<ActionResult<VoteDTO>> CreateDownVote(VoteDTO downVote)
         {
-            DownVote data = new DownVote();
-            data.BlogId = downVote.BlogId;
-            data.username = downVote.username;
-            data.CreatedAt = DateTime.Now;
+            if (downVote == null || !ModelState.IsValid)
+            {
+                return BadRequest(new { message = "Invalid downVote data." });
+            }
 
+            var downVoteEntity = new DownVote
+            {
+                BlogId = downVote.BlogId,
+                username = downVote.username,
+                CreatedAt = DateTime.UtcNow
+            };
 
-            var exists = _context.DownVote.FirstOrDefault(x => x.BlogId == downVote.BlogId && x.username == downVote.username);
-            if (exists != null)
+            var downVoteQuery = from dv in _context.DownVote
+                                where dv.BlogId == downVote.BlogId && dv.username == downVote.username
+                                select dv;
+
+            bool isExistingDownVote = await downVoteQuery.AnyAsync();
+
+            if (isExistingDownVote)
             {
                 return NoContent();
             }
 
-            _context.DownVote.Add(data);
+            _context.DownVote.Add(downVoteEntity);
 
-            var existsInUpVote = _context.UpVote.FirstOrDefault(x => x.BlogId == downVote.BlogId && x.username == downVote.username);
-            if (existsInUpVote != null)
+            var upVoteQuery = _context.UpVote
+                .Where(uv => uv.BlogId == downVote.BlogId && uv.username == downVote.username);
+
+            if (await upVoteQuery.AnyAsync())
             {
-                _context.UpVote.Remove(existsInUpVote);
+                _context.UpVote.RemoveRange(await upVoteQuery.ToListAsync());
             }
 
-            //This section will add notifcation
-            Notification newNotification = new Notification();
-            newNotification.Title = downVote.Title;
-            newNotification.Description = downVote.Description;
-            newNotification.isRead = false;
-            newNotification.User = downVote.NotificationUser;
+            var notification = new Notification
+            {
+                Title = downVote.Title,
+                Description = downVote.Description,
+                isRead = false,
+                User = downVote.NotificationUser
+            };
 
-            _context.Notification.Add(newNotification);
+            _context.Notification.Add(notification);
 
-            await _context.SaveChangesAsync();
+            try
+            {
+                await using var transaction = await _context.Database.BeginTransactionAsync();
 
-            return CreatedAtAction(nameof(GetDownVote), new { id = data.Id }, downVote);
+                var saveResult = await _context.SaveChangesAsync();
 
+                if (saveResult > 0)
+                {
+                    await transaction.CommitAsync();
+                }
+                else
+                {
+                    await transaction.RollbackAsync();
+                    return StatusCode(500, "No changes were made to the database.");
+                }
+            }
+            catch (Exception ex)
+            {
+                await _context.Database.RollbackTransactionAsync();
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+
+            return CreatedAtAction(nameof(GetDownVote), new { id = downVoteEntity.Id }, downVote);
         }
     }
 }
